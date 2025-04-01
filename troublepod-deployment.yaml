@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: trouble-container
-        image: nginx:invalid-tag  # Intentiona:l error - invalid image tag
+        image: nginx:invalid-tag  # Intentional error - invalid image tag
         ports:
         - containerPort: 80
         livenessProbe:            # Configured to fail

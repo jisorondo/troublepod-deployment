@@ -31,4 +31,5 @@ spec:
           periodSeconds: 3
         resources:
           limits:
-            memory: "50Mi"       # Very low memory limit (likely to cause OOM)
+            memory: "7Mi"      # Very low memory limit (likely to cause OOM)
+            cpu: "10m"       

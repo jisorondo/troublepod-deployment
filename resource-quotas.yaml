@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-quotas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quota-demo
+  template:
+    metadata:
+      labels:
+        app: quota-demo
+    spec:
+      containers:
+      - name: quotas
+        image: nginx
+        ports:
+        - containerPort: 80
+        livenessProbe:        
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:           
+          httpGet:
+            path: /               
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1"
+          limits:
+            memory: "2Gi"
+            cpu: "2"

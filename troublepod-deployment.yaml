@@ -23,7 +23,7 @@ spec:
             port: 80
           initialDelaySeconds: 5
           periodSeconds: 5
-        readinessProbe:           # 3. Will fail (wrong port)
+        readinessProbe:           # Will fail (wrong port)
           httpGet:
             path: /               # Correct path
             port: 8080           # Wrong port (should be 80)

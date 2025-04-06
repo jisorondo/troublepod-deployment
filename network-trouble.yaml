@@ -28,15 +28,14 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
 ---
-# service-loadbalancer.yaml
+# nginx-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-loadbalancer
+  name: nginx-service
   labels:
     app: nginx
 spec:
-  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 80
